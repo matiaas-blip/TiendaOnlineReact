@@ -17,6 +17,10 @@
   }
 }
 
+button:hover {
+  transform: scale(1.05);
+}
+
 .hero {
   position: relative;
 
@@ -181,4 +185,38 @@
     right: 0;
     border-right-color: var(--border);
   }
+
+:root {
+  --bg: #fff0f6;
+  --primary: #ff7eb6;
+  --secondary: #ffc2dd;
+  --text: #3a2a33;
+  --card: #ffffff;
+  --border: #ffd6e7;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, sans-serif;
+}
+
+@keyframes flotar {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.gatito-flotante {
+  animation: flotar 3s ease-in-out infinite;
+}
+
 }

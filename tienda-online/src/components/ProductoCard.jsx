@@ -7,7 +7,7 @@ function ProductoCard({ producto }) {
   const { agregarProducto } = useContext(CarritoContext);
 
   return (
-    <div className="border rounded-lg p-4">
+    <div className="border rounded-xl p-4 bg-white shadow-sm hover:shadow-lg transition">
 
       <img
         src={producto.imagen}
@@ -17,7 +17,9 @@ function ProductoCard({ producto }) {
 
       <h2>{producto.nombre}</h2>
 
-      <p>${producto.precio}</p>
+      <p className="text-pink-500 font-bold text-lg">
+        ${producto.precio}
+      </p>
 
       <p>{producto.categoria}</p>
 
@@ -25,16 +27,13 @@ function ProductoCard({ producto }) {
         <button
           onClick={() => agregarProducto(producto)}
           className="
-            bg-green-600
+            bg-pink-400
             text-white
-            px-4
-            py-2
+            px-4 py-2
             mt-2
-            rounded
+            rounded-full
+            hover:bg-pink-500
             transition
-            duration-150
-            hover:scale-105
-            active:scale-95
           "
         >
           Agregar
