@@ -1,29 +1,29 @@
 const productos = [
     {
         id: 1,
-        nombre: "",
-        categoria: "",
+        nombre: "Mouse Rosa Palido",
+        categoria: "Periféricos",
         precio: 12000,
-        imagen: "",
-        descripcion: "",
+        imagen: "/img/mouseRosa.jpg",
+        descripcion: "Mouse de alta calidad de color rosa palido con luces led con diferentes tonos",
         stock: 10
     },
     {
         id: 2,
-        nombre: "",
-        categoria: "",
-        precio: 12000,
-        imagen: "",
-        descripcion: "",
+        nombre: "Parlantes Rosa Edifier",
+        categoria: "Audio",
+        precio: 45000,
+        imagen: "/img/parlantesRosa.jpg",
+        descripcion: "Edifier G2000 32W PC Computer Speakers for Gaming Desktop PC Laptop Mac Computer Woofer Speakers Bluetooth USB 3.5mm AUX Inputs RGB Lights Multimedia Speakers Pink",
         stock: 10
     },
     {
         id: 3,
-        nombre: "",
+        nombre: "Parlantes Rosa Redragon",
         categoria: "",
-        precio: 12000,
-        imagen: "",
-        descripcion: "",
+        precio: 38000,
+        imagen: "/img/parlantesRedragon.jpg",
+        descripcion: "Redragon GS520 RGB Desktop Speakers, 2.0 Channel PC Computer Stereo Speaker with 6 Colorful LED Modes, Enhanced Sound and Easy-Access Volume Control, USB Powered w/ 3.5mm Cable, Pink",
         stock: 10
     },
     {
@@ -109,4 +109,4 @@ const productos = [
     }
 ]
 
-export default productos
+export default productos;
