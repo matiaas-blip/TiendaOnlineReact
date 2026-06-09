@@ -22,7 +22,7 @@ function Productos() {
   const categorias = [...new Set(productos.map((p) => p.categoria))];
 
   return (
-    <div className="p-6">
+    <div className="max-w-7xl mx-auto p-6">
 
       <div className="text-center mb-8">
         <h1 className="text-5xl font-bold text-pink-500">

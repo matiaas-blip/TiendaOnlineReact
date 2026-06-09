@@ -8,9 +8,16 @@ function Navbar() {
   const { cantidadTotal } = useContext(CarritoContext);
 
   return (
-    <nav className="bg-pink-200 px-6 py-3 flex justify-between items-center">
+    <nav className="
+      bg-pink-400
+      p-4
+      flex
+      flex-wrap
+      justify-between
+      items-center
+    ">
 
-      <div className="flex gap-6 items-center">
+      <div className="flex flex-wrap gap-4">
         <Link to="/">🏠 Inicio</Link>
 
         <Link to="/productos">🛍️ Productos</Link>
