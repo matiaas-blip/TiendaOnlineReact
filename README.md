@@ -161,6 +161,6 @@ Este proyecto fue desarrollado con fines educativos para aplicar conceptos de:
 
 ## 👨‍💻 Autor
 
-Desarrollado por Matías Mira.
+Desarrollado por Abby Miramon.
 
-Pinkie Nova Gaming © 2026
+
