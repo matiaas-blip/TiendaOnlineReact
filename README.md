@@ -77,6 +77,8 @@ src/
 
 ├── components/
 
+│ ├── FormularioCompra.jsx
+
 │ ├── Navbar.jsx
 
 │ └── ProductoCard.jsx
