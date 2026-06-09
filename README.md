@@ -52,7 +52,7 @@ El proyecto simula una experiencia de compra moderna inspirada en tiendas de e-c
 * Estética cute y gamer.
 * Paleta de colores rosa pastel.
 * Diseño moderno y amigable.
-* Logo personalizado de Pinkie Nova Gaming.
+
 
 ---
 
