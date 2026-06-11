@@ -8,11 +8,14 @@ function Carrito() {
     aumentarCantidad,
     disminuirCantidad,
     total,
-    vaciarCarrito
+    vaciarCarrito,
+    descontarStock,
+    mensajeStock
   } = useContext(CarritoContext);
 
   const [confirmar, setConfirmar] = useState(false);
   const [compraExitosa, setCompraExitosa] = useState(false);
+  const [mensajeError, setMensajeError] = useState("");
 
   const [form, setForm] = useState({
     nombre: "",
@@ -31,28 +34,44 @@ function Carrito() {
   };
 
   const validarFormulario = () => {
+
     if (!form.nombre || !form.email || !form.telefono || !form.direccion) {
-      alert("Completa todos los campos obligatorios");
+
+      setMensajeError(
+        "Completa todos los campos obligatorios."
+      );
+
       return false;
     }
 
     if (!form.email.includes("@")) {
-      alert("Email inválido");
+
+      setMensajeError(
+        "Ingresá un email válido."
+      );
+
       return false;
     }
 
     if (carrito.length === 0) {
-      alert("El carrito está vacío");
+
+      setMensajeError(
+        "El carrito está vacío."
+      );
+
       return false;
     }
 
+    setMensajeError("");
     return true;
-  };
+};
 
   const finalizarCompra = () => {
     if (!validarFormulario()) return;
 
     setCompraExitosa(true);
+
+    descontarStock();
 
     vaciarCarrito();
 
@@ -86,6 +105,7 @@ function Carrito() {
         </p>
 
       </div>
+
 
       {compraExitosa && (
         <div className="bg-pink-100 border-2 border-pink-300 rounded-3xl p-6 mb-6 shadow-lg">
@@ -167,6 +187,23 @@ function Carrito() {
           className="border p-3 rounded-xl w-full"
         />
 
+        {mensajeError && (
+          <div
+            className="
+              mt-4
+              bg-red-100
+              border
+              border-red-300
+              text-red-700
+              p-4
+              rounded-2xl
+              font-semibold
+            "
+          >
+            {mensajeError}
+          </div>
+        )}
+
       </div>
 
       {carrito.length === 0 ? (
@@ -190,6 +227,29 @@ function Carrito() {
       ) : (
 
         <>
+        {mensajeStock && (
+          <div
+            className="
+              bg-red-100
+              border-2
+              border-red-300
+              rounded-3xl
+              p-4
+              mb-6
+              text-center
+              shadow-lg
+            "
+          >
+            <div className="text-3xl mb-2">
+              ⚠️
+            </div>
+
+            <p className="text-red-600 font-bold">
+              {mensajeStock}
+            </p>
+          </div>
+        )}  
+
           <div className="space-y-4">
 
             {carrito.map((item) => (

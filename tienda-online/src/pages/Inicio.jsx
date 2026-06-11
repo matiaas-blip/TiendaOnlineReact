@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import estrella from "../assets/icons/estrella.svg";
+import corazon from "../assets/icons/corazon.svg";
 
 function Inicio() {
   return (
@@ -10,11 +12,11 @@ function Inicio() {
         <div className="text-center">
 
           <h1 className="text-6xl font-bold text-pink-500 mb-4">
-            🎀 Pinkie Nova Gaming 🎀
+             Pinkie Nova Gaming 
           </h1>
 
           <p className="text-xl text-pink-700 mb-6">
-            Periféricos gamer con una estética única, cute y moderna 💕
+            Periféricos gamer con una estética única, cute y moderna. 
           </p>
 
           <img
@@ -37,7 +39,7 @@ function Inicio() {
               transition
             "
           >
-            🛍️ Explorar Catálogo
+             Explorar Catálogo
           </Link>
 
         </div>
@@ -62,10 +64,25 @@ function Inicio() {
         </div>
 
         <div className="bg-white p-6 rounded-3xl shadow">
-          <h2 className="text-2xl mb-2">💖 Diseño Cute</h2>
+
+          <div className="flex items-center gap-2 mb-2">
+
+            <img
+              src={corazon}
+              alt="Diseño Cute"
+              className="w-8 h-8"
+            />
+
+            <h2 className="text-2xl">
+              Diseño Cute
+            </h2>
+
+          </div>
+
           <p>
             Una tienda pensada para quienes aman la estética kawaii.
           </p>
+
         </div>
 
       </section>
@@ -74,7 +91,7 @@ function Inicio() {
       <section className="p-6">
 
         <h2 className="text-4xl font-bold text-center text-pink-500 mb-8">
-          ✨ Productos Destacados ✨
+           Productos Destacados 
         </h2>
 
         <div className="grid md:grid-cols-3 gap-6">
@@ -129,7 +146,18 @@ function Inicio() {
           </div>
 
           <div>
-            <h3 className="text-4xl font-bold">⭐ 4.9</h3>
+            <div className="flex items-center justify-center gap-2">
+              <img
+                src={estrella}
+                alt="Estrella"
+                className="w-8 h-8"
+              />
+
+              <h3 className="text-4xl font-bold">
+                4.9
+              </h3>
+            </div>
+
             <p>Calificación promedio</p>
           </div>
 

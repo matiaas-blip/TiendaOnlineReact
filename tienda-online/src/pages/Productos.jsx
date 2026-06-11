@@ -1,8 +1,11 @@
-import { useState } from "react";
-import productos from "../data/productos";
+import { useState, useContext } from "react";
+import { CarritoContext } from "../context/CarritoContext";
 import ProductoCard from "../components/ProductoCard";
 
 function Productos() {
+  const { productos, mensajeStock } =
+    useContext(CarritoContext);
+
   const [busqueda, setBusqueda] = useState("");
   const [categoria, setCategoria] = useState("");
   const [orden, setOrden] = useState("");
@@ -26,7 +29,7 @@ function Productos() {
 
       <div className="text-center mb-8">
         <h1 className="text-5xl font-bold text-pink-500">
-          🎀 Catálogo 🎀
+            Catálogo 
         </h1>
 
         <p className="text-pink-700 mt-2">

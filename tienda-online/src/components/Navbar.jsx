@@ -1,50 +1,96 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { CarritoContext } from "../context/CarritoContext";
-import logo from "../assets/logo.jpg"
+import logo from "../assets/logo.svg";
 
 function Navbar() {
-
   const { cantidadTotal } = useContext(CarritoContext);
 
   return (
-    <nav className="
-      bg-pink-400
-      p-4
-      flex
-      flex-wrap
-      justify-between
-      items-center
-    ">
+    <nav
+      className="
+        bg-pink-400
+        px-4
+        py-3
+        flex
+        flex-col
+        md:flex-row
+        items-center
+        justify-between
+        gap-4
+      "
+    >
+      <img
+        src={logo}
+        alt="Logo"
+        className="h-14 w-auto"
+      />
 
-      <div className="flex flex-wrap gap-4">
-        <Link to="/">🏠 Inicio</Link>
+      <div
+        className="
+          flex
+          flex-wrap
+          justify-center
+          gap-4
+          text-sm
+          md:text-base
+          font-medium
+        "
+      >
+        <Link
+          to="/"
+          className="hover:text-white transition"
+        >
+          🏠 Inicio
+        </Link>
 
-        <Link to="/productos">🛍️ Productos</Link>
+        <Link
+          to="/productos"
+          className="hover:text-white transition"
+        >
+          🛍️ Productos
+        </Link>
 
-        <Link to="/carrito" className="relative">
+        <Link
+          to="/carrito"
+          className="relative hover:text-white transition"
+        >
           🛒 Carrito
 
           {cantidadTotal > 0 && (
-            <span className="absolute -top-2 -right-3 bg-pink-500 text-white text-xs px-2 rounded-full">
+            <span
+              className="
+                absolute
+                -top-2
+                -right-3
+                bg-pink-600
+                text-white
+                text-xs
+                px-2
+                rounded-full
+              "
+            >
               {cantidadTotal}
             </span>
           )}
         </Link>
 
-        <Link to="/contacto">💌 Contacto</Link>
+        <Link
+          to="/contacto"
+          className="hover:text-white transition"
+        >
+          💌 Contacto
+        </Link>
 
-        <Link to="/nosotros">🎀 Nosotros</Link>
+        <Link
+          to="/nosotros"
+          className="hover:text-white transition"
+        >
+          🎀 Nosotros
+        </Link>
       </div>
-
-      <img
-        src={logo}
-        alt="Logo"
-        className="h-12 w-auto"
-      />
-
     </nav>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;

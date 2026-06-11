@@ -1,4 +1,5 @@
 import { useState } from "react";
+import mascota from "../assets/logoEsquina.svg";
 
 function Contacto() {
   const [enviado, setEnviado] = useState(false);
@@ -182,14 +183,15 @@ function Contacto() {
 
         </form>
         <img
-          src="/img/kitty.jpg"
-          alt="Gatito decorativo"
+          src={mascota}
+          alt="Mascota"
           className="
-            gatito-flotante
             fixed
             bottom-4
             right-4
-            w-28
+            w-24
+            md:w-32
+            select-none
             pointer-events-none
           "
         />

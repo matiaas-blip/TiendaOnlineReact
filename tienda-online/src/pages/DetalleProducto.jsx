@@ -2,11 +2,15 @@ import { useParams, Link } from "react-router-dom";
 import { useContext } from "react";
 import productos from "../data/productos";
 import { CarritoContext } from "../context/CarritoContext";
+import mascota from "../assets/logoEsquina.svg";
 
 function DetalleProducto() {
   const { id } = useParams();
 
-  const { agregarProducto } = useContext(CarritoContext);
+  const {
+    agregarProducto,
+    productos
+  } = useContext(CarritoContext);
 
   const producto = productos.find(
     (p) => p.id === Number(id)
@@ -180,15 +184,15 @@ function DetalleProducto() {
         <div className="grid md:grid-cols-3 gap-4">
 
           <div className="bg-pink-100 p-5 rounded-2xl shadow">
-            🎮 Ideal para gaming
+            Ideal para gaming
           </div>
 
           <div className="bg-pink-100 p-5 rounded-2xl shadow">
-            💖 Diseño exclusivo Pinkie Nova
+            Diseño exclusivo Pinkie Nova
           </div>
 
           <div className="bg-pink-100 p-5 rounded-2xl shadow">
-            🚚 Envíos a todo el país
+            Envíos a todo el país
           </div>
 
         </div>
@@ -214,18 +218,19 @@ function DetalleProducto() {
 
       </div>
 
-      {/* Gatito decorativo */}
-      <div
+      <img
+        src={mascota}
+        alt="Mascota"
         className="
           fixed
           bottom-4
           right-4
-          text-7xl
+          w-24
+          md:w-32
           select-none
+          pointer-events-none
         "
-      >
-        🐱💕
-      </div>
+      />
 
     </div>
   );

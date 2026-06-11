@@ -4,58 +4,80 @@ import { CarritoContext } from "../context/CarritoContext";
 
 function ProductoCard({ producto }) {
 
-  const { agregarProducto } = useContext(CarritoContext);
+const { agregarProducto, carrito } = useContext(CarritoContext);
 
-  return (
-    <div className="border rounded-xl p-4 bg-white shadow-sm hover:shadow-lg transition">
+const productoEnCarrito = carrito.find(
+item => item.id === producto.id
+);
 
-      <img
-        src={producto.imagen}
-        alt={producto.nombre}
-        className="h-52 w-full object-contain bg-white"
-      />
+const cantidadEnCarrito = productoEnCarrito
+? productoEnCarrito.cantidad
+: 0;
 
-      <h2>{producto.nombre}</h2>
+const stockDisponible =
+producto.stock - cantidadEnCarrito;
 
-      <p className="text-pink-500 font-bold text-lg">
-        ${producto.precio}
-      </p>
+return ( <div className="border rounded-xl p-4 bg-white shadow-sm hover:shadow-lg transition">
 
-      <p>{producto.categoria}</p>
+  <img
+    src={producto.imagen}
+    alt={producto.nombre}
+    className="h-52 w-full object-contain bg-white"
+  />
 
-      {producto.stock > 0 ? (
-        <button
-          onClick={() => agregarProducto(producto)}
-          className="
-            bg-pink-400
-            text-white
-            px-4 py-2
-            mt-2
-            rounded-full
-            hover:bg-pink-500
-            transition
-          "
-        >
-          Agregar
-        </button>
-      ) : (
-        <button
-          disabled
-          className="bg-gray-500 text-white px-4 py-2 mt-2"
-        >
-          Sin stock
-        </button>
-      )}
+  <h2>{producto.nombre}</h2>
 
-      <Link
-        to={`/producto/${producto.id}`}
-        className="block mt-2 text-blue-500"
-      >
-        Ver detalle
-      </Link>
+  <p className="text-pink-500 font-bold text-lg">
+    ${producto.precio}
+  </p>
 
-    </div>
-  );
+  <p>{producto.categoria}</p>
+
+  <p className="text-sm text-gray-600">
+    Stock disponible: {stockDisponible}
+  </p>
+
+  {stockDisponible > 0 ? (
+    <button
+      onClick={() => agregarProducto(producto)}
+      className="
+        bg-pink-400
+        text-white
+        px-4 py-2
+        mt-2
+        rounded-full
+        hover:bg-pink-500
+        transition
+      "
+    >
+      Agregar
+    </button>
+  ) : (
+    <button
+      disabled
+      className="
+        bg-gray-500
+        text-white
+        px-4
+        py-2
+        mt-2
+        rounded-full
+      "
+    >
+      Sin stock
+    </button>
+  )}
+
+  <Link
+    to={`/producto/${producto.id}`}
+    className="block mt-2 text-blue-500"
+  >
+    Ver detalle
+  </Link>
+
+</div>
+
+);
 }
 
 export default ProductoCard;
